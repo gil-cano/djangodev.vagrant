@@ -4,4 +4,5 @@ Vagrant.configure(2) do |config|
     vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
   end
   config.vm.provision :shell, path: "nginx.sh"
+  config.vm.network :forwarded_port, guest: 80, host: 4567
 end
